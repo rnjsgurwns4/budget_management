@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>거래 추가</title>
+    <link href="{{ url_for('static', filename='main.css') }}" type="text/css" rel="stylesheet">
+</head>
+
+<style>
+    button {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+            border: none;
+            width: 30%; 
+            height: 50px; 
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+    button:hover {
+        background-color: #218c4a;
+    }
+
+    form{
+        border-collapse: collapse;
+        border : 1px solid black;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    };
+</style>
+
+
+<body id = "main">
+    <div id="page-frame">
+    <br>
+    <br>
+    <h1 style="margin-bottom: 10px; text-align:center;">거래 추가</h1>
+    <br>
+    <hr>
+
+    <nav>
+        <ul>									  
+            <li><a href="{{ url_for('index') }}">가계부 메인화면</a></li>
+            
+        </ul>
+    </nav>
+
+    <form method="POST">
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label for="type" style="font-weight: bold; font-size: 20px;">거래 유형:</label>
+        <input type="radio" id="income" name="type" value="income" checked > 수입
+        <input type="radio" id="expense" name="type" value="expense"> 지출
+        </div>
+        
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label>금액: <input type="number" name="amount" min="0" required></label><br>
+        </div>
+
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label>카테고리: <input type="text" name="category" required></label><br>
+        </div>
+
+        <div style = "display: block; text-align: center;">
+        <label>설명: <input type="text" name="description"></label><br>
+        </div>
+        <br>
+
+        <div style = "display: block; text-align: center;">
+        <button type="submit" id="button_test">추가</button>
+        </div>
+    </form>
+    <br>
+    </div>
+</body>
+</html>

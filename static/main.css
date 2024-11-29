@@ -1,0 +1,166 @@
+﻿* { 
+	margin: 0; padding: 0;
+	font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+}
+
+a { 
+	color : blue;
+    text-decoration : none;
+
+}
+a:hover {
+	color:white;
+	background: black;
+}
+
+li { 
+	list-style-type : none;
+}
+
+iframe {
+	border-width: 0px;
+}
+
+body#main {
+	margin: 0 auto;
+	width:960px;
+	background: #E6E6E6;
+}
+
+#page-frame {
+	background: white;
+	margin-top:40px;
+	margin-bottom: 40px;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius : 10px;
+	box-shadow : 0px 7px 5px gray;
+}
+
+#main-page {	
+	width:720px;
+	background: white;
+	margin:50px;
+	padding:50px;
+	border-radius : 5px;
+	box-shadow : 0px 7px 5px gray;
+}
+
+#main-content {
+	line-height: 100px;
+}
+
+#suggest-content {
+	line-height: 60px;
+}
+
+footer {
+	clear: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color:#C8C8C8;
+}
+
+section {
+	   text-align: left;
+	   width: 900px;
+}
+
+article {
+	padding:30px;
+}
+
+td {
+	padding:20px;
+}
+
+#main-header { 
+	margin-left:140px;
+}
+
+nav {
+		width : 700px; 
+		font-size: 15px;
+		font-weight: 600;
+		text-align: center;
+		color : black;
+		padding: 10px;
+		margin: 30px;
+		margin-left:100px;
+		margin-bottom:50px;
+		border-radius : 10px;
+		box-shadow : 0px 7px 5px gray;
+}
+
+nav li {
+	display : inline-block;
+    list-style-type : none; 
+    padding : 0px 40px; 
+    background: white;
+}
+
+.smallimg {
+	position:absolute;
+	top:100px;
+	left:530px;
+}		
+
+#web-header {
+	background: white;
+	padding: 50px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C8C8C8;
+
+}
+
+fieldset {
+	width:500px;
+	padding:30px;
+	margin: 30px;
+}
+
+legend {
+	font-weight:bold;
+	margin: 30px;
+}
+
+.info {
+	   display: inline-block;
+	   width:80px;
+	   height: 60px;
+	   margin:5px;
+}
+
+#send {
+	text-align: center;
+	margin:20px;
+}
+
+textarea {
+	text-align: center;
+}
+
+textarea:hover {
+	background: skyblue;
+	color:darkslategray;
+}
+
+table, td, th{
+	border : 1px solid black;
+	border-collapse : collapse;
+	text-align: center;
+	margin: 0 auto;
+};
+
+#add_radio{
+	font-weight: bold;
+	font-size: 20px;
+};
+

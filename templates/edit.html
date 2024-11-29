@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>거래 수정</title>
+    <link href="{{ url_for('static', filename='main.css') }}" type="text/css" rel="stylesheet">
+</head>
+
+<style>
+    button {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+            border: none;
+            width: 30%;
+            height: 50px;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+    button:hover {
+        background-color: #218c4a;
+    }
+
+    form{
+        border-collapse: collapse;
+        border : 1px solid black;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    };
+</style>
+
+<script>
+    // 불러온 amount 값에 따라 min/max 속성을 동적으로 설정
+    document.addEventListener("DOMContentLoaded", function () {
+        const amountInput = document.getElementById('amount');
+        const amount = {{ transaction[2] }}; // 서버에서 전달된 금액 값
+
+        if (amount < 0) {
+            amountInput.min = -Infinity; // 음수만 허용
+            amountInput.max = 0;
+            amountInput.value = amount; // 기존 음수 값
+        } else {
+            amountInput.min = 0; // 양수만 허용
+            amountInput.max = Infinity;
+            amountInput.value = amount; // 기존 양수 값
+        }
+    });
+
+    // 잘못된 값 입력 시 검증
+    function validateEditAmount() {
+        const amountInput = document.getElementById('amount');
+        const amount = parseFloat(amountInput.value);
+
+        if (amountInput.min > 0 && amount <= 0) {
+            alert("수입은 양수만 입력할 수 있습니다.");
+            return false;
+        }
+
+        if (amountInput.max < 0 && amount >= 0) {
+            alert("지출은 음수만 입력할 수 있습니다.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+<body id = "main">
+    <div id="page-frame">
+    <br>
+    <br>
+    <h1 style="margin-bottom: 10px; text-align:center;">거래 수정</h1>
+    <br>
+    <hr>
+
+    <nav>
+        <ul>									  
+            <li><a href="{{ url_for('index') }}">가계부 메인화면</a></li>
+            
+        </ul>
+    </nav>
+
+    <form method="POST" onsubmit="return validateEditAmount();">
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <span style="font-weight: bold; font-size: 28px;">
+            {% if transaction[2] < 0 %}
+                지출
+            {% else %}
+                수입
+            {% endif %}
+        </span>
+        </div>
+
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label>금액: <input type="number" id = "amount" name="amount" value="{{ transaction[2] }}" required></label><br>
+        </div>
+
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label>카테고리: <input type="text" name="category" value="{{ transaction[3] }}" required></label><br>
+        </div>
+        
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <label>설명: <input type="text" name="description" value="{{ transaction[4] }}"></label><br>
+        </div>
+
+        <div style = "margin-bottom: 10px; display: block; text-align: center;">
+        <button type="submit">수정</button>
+        </div>
+    </form>
+    <br>
+    </div>
+</body>
+</html>
